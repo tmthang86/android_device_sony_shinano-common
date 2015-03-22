@@ -96,7 +96,7 @@ WITH_DEXPREOPT := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.shinano
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
