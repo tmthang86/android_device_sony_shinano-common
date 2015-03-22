@@ -22,6 +22,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     extract_elf_ramdisk
 
+# Recovery keycheck
+PRODUCT_PACKAGES += \
+    keycheck
+
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGSMDevice=1
