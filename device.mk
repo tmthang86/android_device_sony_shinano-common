@@ -24,6 +24,7 @@ PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/init.shinano.usb.rc:root/init.shinano.usb.rc \
     $(SONY_ROOT)/init.shinano.pwr.rc:root/init.shinano.pwr.rc \
     $(SONY_ROOT)/fstab.shinano:root/fstab.shinano \
+    $(SONY_ROOT)/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(SONY_ROOT)/ueventd.shinano.rc:root/ueventd.shinano.rc \
     $(SONY_ROOT)/system/usr/idc/max1187x_touchscreen_0.idc:system/usr/idc/max1187x_touchscreen_0.idc \
     $(SONY_ROOT)/system/usr/idc/clearpad.idc:system/usr/idc/clearpad.idc \
