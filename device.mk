@@ -15,9 +15,9 @@
 SOMC_PLATFORM := shinano
 
 DEVICE_PACKAGE_OVERLAYS += \
-    device/sony/shinano/overlay
+    device/sony/shinano-common/overlay
 
-SONY_ROOT = device/sony/shinano/rootdir
+SONY_ROOT = device/sony/shinano-common/rootdir
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/init.recovery.shinano.rc:root/init.recovery.shinano.rc \
     $(SONY_ROOT)/init.shinano.rc:root/init.shinano.rc \

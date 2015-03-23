@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/shinano/kernel-headers
+PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/shinano-common/kernel-headers
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -35,7 +35,7 @@ TARGET_NO_SEPARATE_RECOVERY := true
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_DTB_EXTRA_FLAGS := --force-v2
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano/boot/custombootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano-common/boot/custombootimg.mk
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=shinano user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 selinux=0
@@ -52,7 +52,7 @@ TARGET_USES_C2D_COMPOSITION := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-BOARD_EGL_CFG := device/sony/shinano/rootdir/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/sony/shinano-common/rootdir/system/lib/egl/egl.cfg
 
 BOARD_USES_ALSA_AUDIO := true
 
@@ -71,7 +71,7 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 # BT definitions for Broadcom solution
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/shinano/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/shinano-common/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
@@ -82,7 +82,7 @@ TARGET_NO_RPC := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-TARGET_SYSTEM_PROP := device/sony/shinano/system.prop
+TARGET_SYSTEM_PROP := device/sony/shinano-common/system.prop
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
@@ -95,7 +95,7 @@ EXTENDED_FONT_FOOTPRINT := true
 WITH_DEXPREOPT := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/sony/shinano/rootdir/fstab.shinano
+TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.shinano
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
@@ -126,10 +126,10 @@ TW_NO_SCREEN_BLANK := true
 
 # MultiROM config. MultiROM also uses parts of TWRP config
 # MR_INPUT_TYPE := type_b
-# MR_INIT_DEVICES := device/sony/shinano/multirom/init_devices.c
+# MR_INIT_DEVICES := device/sony/shinano-common/multirom/init_devices.c
 # MR_DPI := xhdpi
 # MR_KEXEC_DTB := true
 # MR_DPI_FONT := 340
-# MR_FSTAB := device/sony/shinano/multirom/twrp.fstab
+# MR_FSTAB := device/sony/shinano-common/multirom/twrp.fstab
 # MR_USE_MROM_FSTAB := true
 # MR_KEXEC_MEM_MIN := 0x20000000
