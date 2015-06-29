@@ -24,7 +24,6 @@ PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/init.shinano.usb.rc:root/init.shinano.usb.rc \
     $(SONY_ROOT)/init.shinano.pwr.rc:root/init.shinano.pwr.rc \
     $(SONY_ROOT)/fstab.shinano:root/fstab.shinano \
-    $(SONY_ROOT)/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(SONY_ROOT)/ueventd.shinano.rc:root/ueventd.shinano.rc \
     $(SONY_ROOT)/system/usr/idc/max1187x_touchscreen_0.idc:system/usr/idc/max1187x_touchscreen_0.idc \
     $(SONY_ROOT)/system/usr/idc/clearpad.idc:system/usr/idc/clearpad.idc \
@@ -77,10 +76,6 @@ PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(SONY_ROOT)/system/usr/keylayout/mhl-rcp.kl:system/usr/keylayout/mhl-rcp.kl \
     $(SONY_ROOT)/system/usr/keylayout/msm8974-taiko-mtp-snd-card_Button_Jack.kl:system/usr/keylayout/msm8974-taiko-mtp-snd-card_Button_Jack.kl
-
-#Bootimg tools
-PRODUCT_PACKAGES += \
-    extract_elf_ramdisk
 
 #Audio
 PRODUCT_PACKAGES += \

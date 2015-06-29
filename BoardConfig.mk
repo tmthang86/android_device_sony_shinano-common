@@ -34,12 +34,9 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
 BOARD_KERNEL_BOOTIMG := true
-TARGET_NO_SEPARATE_RECOVERY := true
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_KERNEL_SEPARATED_DT := true
-TARGET_DTB_EXTRA_FLAGS := --force-v2
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano-common/boot/custombootimg.mk
-BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
+#BOARD_CUSTOM_MKBOOTIMG := mkqcdtbootimg
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+#BOARD_MKBOOTIMG_ARGS += --dt_dir $(OUT)/dtbs
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=shinano androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
@@ -52,6 +49,8 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2671771648
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+
+TARGET_RECOVERY_FSTAB = device/sony/shinano-common/rootdir/fstab.shinano
 
 USE_OPENGL_RENDERER := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -84,6 +83,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := device/sony/shinano-common/bluetooth/vnd_generic.txt
 
+
 # GPS definitions for Qualcomm solution
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 TARGET_NO_RPC := true
@@ -95,6 +95,7 @@ TARGET_SYSTEM_PROP := device/sony/shinano-common/system.prop
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -104,45 +105,8 @@ ifeq ($(HOST_OS),linux)
     WITH_DEXPREOPT ?= true
 endif
 
-# Recovery
-TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.shinano
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-
-# TWRP flags
-DEVICE_RESOLUTION := 1080x1920
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-RECOVERY_SDCARD_ON_DATA := true
-TW_HAS_NO_RECOVERY_PARTITION := true
-TW_FLASH_FROM_STORAGE := true
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-# TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_JB_CRYPTO := true
-TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/msm_sdcc.1/by-name/userdata"
-TW_CRYPTO_MNT_POINT := "/data"
-TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
-TW_CRYPTO_FS_FLAGS := "0x00000406"
-TW_CRYPTO_KEY_LOC := "footer"
-TW_INCLUDE_FUSE_EXFAT := true
-# TW_BOARD_CUSTOM_GRAPHICS := ../../../device/sony/shinano-common/recovery/twrpgraphics.c
-TW_BRIGHTNESS_PATH := /sys/class/leds/wled:backlight/brightness
-TW_MAX_BRIGHTNESS := 4095
-TW_NO_USB_STORAGE := true
-TW_NO_SCREEN_BLANK := true
-
-# MultiROM config. MultiROM also uses parts of TWRP config
-# MR_INPUT_TYPE := type_b
-# MR_INIT_DEVICES := device/sony/shinano-common/multirom/init_devices.c
-# MR_DPI := xhdpi
-# MR_KEXEC_DTB := true
-# MR_DPI_FONT := 340
-# MR_FSTAB := device/sony/shinano-common/multirom/twrp.fstab
-# MR_USE_MROM_FSTAB := true
-# MR_KEXEC_MEM_MIN := 0x20000000
+BUILD_KERNEL := true
+-include vendor/sony/kernel/KernelConfig.mk
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
