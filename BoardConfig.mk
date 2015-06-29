@@ -104,6 +104,7 @@ ifeq ($(HOST_OS),linux)
     WITH_DEXPREOPT ?= true
 endif
 
+<<<<<<< HEAD
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.shinano
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
@@ -143,3 +144,26 @@ TW_NO_SCREEN_BLANK := true
 # MR_FSTAB := device/sony/shinano-common/multirom/twrp.fstab
 # MR_USE_MROM_FSTAB := true
 # MR_KEXEC_MEM_MIN := 0x20000000
+
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+    device/sony/shinano/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    addrsetup.te \
+    device.te \
+    file.te \
+    property.te \
+    sct.te \
+    sensors.te \
+    service.te \
+    system_app.te \
+    tad.te \
+    ta_qmi.te \
+    thermanager.te \
+    timekeep.te \
+    file_contexts \
+    property_contexts \
+    service_contexts
