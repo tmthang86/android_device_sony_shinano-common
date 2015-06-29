@@ -148,7 +148,7 @@ TW_NO_SCREEN_BLANK := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/sony/shinano/sepolicy
+    device/sony/shinano-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     addrsetup.te \
