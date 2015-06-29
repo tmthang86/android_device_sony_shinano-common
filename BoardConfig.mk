@@ -104,7 +104,6 @@ ifeq ($(HOST_OS),linux)
     WITH_DEXPREOPT ?= true
 endif
 
-<<<<<<< HEAD
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.shinano
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
