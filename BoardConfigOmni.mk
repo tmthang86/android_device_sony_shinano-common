@@ -18,6 +18,29 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano-common/boot/custombootimg.mk
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_DTB_EXTRA_FLAGS := --force-v2
 
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+    device/sony/shinano-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    addrsetup.te \
+    device.te \
+    file.te \
+    property.te \
+    sct.te \
+    sensors.te \
+    service.te \
+    system_app.te \
+    tad.te \
+    ta_qmi.te \
+    thermanager.te \
+    timekeep.te \
+    file_contexts \
+    property_contexts \
+    service_contexts
+
 # TWRP Recovery
 TARGET_NO_SEPARATE_RECOVERY := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
