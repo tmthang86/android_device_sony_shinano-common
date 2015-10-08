@@ -91,6 +91,7 @@ BOARD_BLUEDROID_VENDOR_CONF := device/sony/shinano-common/bluetooth/vnd_generic.
 
 # GPS definitions for Qualcomm solution
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 TARGET_NO_RPC := true
 
 # Charger
@@ -100,6 +101,7 @@ TARGET_SYSTEM_PROP := device/sony/shinano-common/system.prop
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
+#BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -111,26 +113,3 @@ endif
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
-
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    device/sony/shinano-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    addrsetup.te \
-    device.te \
-    file.te \
-    property.te \
-    sct.te \
-    sensors.te \
-    service.te \
-    system_app.te \
-    tad.te \
-    ta_qmi.te \
-    thermanager.te \
-    timekeep.te \
-    file_contexts \
-    property_contexts \
-    service_contexts

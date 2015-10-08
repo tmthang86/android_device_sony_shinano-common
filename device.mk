@@ -54,7 +54,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
 
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -119,9 +120,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
-PRODUCT_PACKAGES += \
-    libstlport
-
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -141,12 +139,11 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag \
-    nfc_nci.pn54x.default
+    nfc_nci.msm8974
 
 # GPS
 PRODUCT_PACKAGES += \
     libloc_api_v02 \
-    libloc_adapter \
     libloc_core \
     libloc_eng \
     libgps.utils \
@@ -155,7 +152,6 @@ PRODUCT_PACKAGES += \
 # WLAN
 PRODUCT_PACKAGES += \
     p2p_supplicant.conf \
-    gsm_domains.conf \
     dhcpcd.conf \
     hostapd \
     libwpa_client \
@@ -209,8 +205,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
+# BoringSSL hacks
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
 # APN list
 PRODUCT_COPY_FILES += \
+    device/sample/etc/old-apns-conf.xml:system/etc/old-apns-conf.xml \
     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Keyguard
