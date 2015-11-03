@@ -114,7 +114,7 @@ BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/aosp-sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
     device/sony/shinano/sepolicy
