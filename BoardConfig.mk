@@ -101,7 +101,6 @@ TARGET_SYSTEM_PROP := device/sony/shinano-common/system.prop
 
 # NFC
 NFC_NXP_CHIP_TYPE := PN547C2
-#BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -113,3 +112,9 @@ endif
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
+
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+    device/sony/shinano/sepolicy
