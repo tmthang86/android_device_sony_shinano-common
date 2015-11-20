@@ -120,17 +120,21 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     addrsetup.te \
+    bluetooth.te \
     device.te \
     file.te \
+    tfa_amp.te \
     property.te \
     sct.te \
     sensors.te \
     service.te \
+    mlog_qmi.te \
     system_app.te \
     tad.te \
     ta_qmi.te \
     thermanager.te \
     timekeep.te \
     file_contexts \
+    genfs_contexts \
     property_contexts \
     service_contexts
