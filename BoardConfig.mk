@@ -134,6 +134,7 @@ BOARD_SEPOLICY_UNION += \
     ta_qmi.te \
     thermanager.te \
     timekeep.te \
+    wpa.te \
     file_contexts \
     genfs_contexts \
     property_contexts \
